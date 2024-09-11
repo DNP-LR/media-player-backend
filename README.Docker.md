@@ -1,0 +1,1 @@
+docker build -t pavel27/mediaplayerbackend:latest .

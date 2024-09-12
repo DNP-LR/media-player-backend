@@ -1,10 +1,10 @@
 package com.example.mediaplayerbackend.dto;
 
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Data
 @Builder
@@ -12,15 +12,17 @@ import org.antlr.v4.runtime.misc.NotNull;
 @AllArgsConstructor
 public class MediaPlayerDto {
     private Long id;
-    @NotNull
     private String title;
     private String artist;
     private String album;
     private String genre;
     private long duration;
-    private int trackNumber;
+    @Lob
+    private byte[] mp3Data;
+    @Lob
+    private byte[] coverPath;
     private int trackCount;
     private int year;
-    private String comment;
-    private String coverPath;
+    private String lyrics;
+
 }

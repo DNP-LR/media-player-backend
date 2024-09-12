@@ -21,17 +21,15 @@ public class MediaPlayerRepoImplementation implements MediaPlayerService {
 
     @Override
     public MediaPlayerModel saveMediaPlayer(MediaPlayerDto mediaPlayerDto) {
-        // You'll need to map the MediaPlayerDto to MediaPlayerModel here
         MediaPlayerModel mediaPlayerModel = new MediaPlayerModel(
                 mediaPlayerDto.getTitle(),
                 mediaPlayerDto.getArtist(),
                 mediaPlayerDto.getAlbum(),
                 mediaPlayerDto.getGenre(),
                 mediaPlayerDto.getDuration(),
-                mediaPlayerDto.getTrackNumber(),
-                mediaPlayerDto.getTrackCount(),
+                mediaPlayerDto.getMp3Data(),
                 mediaPlayerDto.getYear(),
-                mediaPlayerDto.getComment(),
+                mediaPlayerDto.getLyrics(),
                 mediaPlayerDto.getCoverPath());
         return mediaPlayerRepository.save(mediaPlayerModel);
     }
@@ -78,10 +76,10 @@ public class MediaPlayerRepoImplementation implements MediaPlayerService {
                 .album(mediaPlayerModel.getAlbum())
                 .genre(mediaPlayerModel.getGenre())
                 .duration(mediaPlayerModel.getDuration())
-                .trackNumber(mediaPlayerModel.getTrackNumber())
+                .mp3Data(mediaPlayerModel.getMp3Data())
                 .trackCount(mediaPlayerModel.getTrackCount())
                 .year(mediaPlayerModel.getYear())
-                .comment(mediaPlayerModel.getLyrics())
+                .lyrics(mediaPlayerModel.getLyrics())
                 .coverPath(mediaPlayerModel.getCoverPath())
                 .build();
     }
